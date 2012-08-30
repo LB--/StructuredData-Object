@@ -1,0 +1,199 @@
+{
+	"About":
+	{
+		"Name": "Structured Data Object",
+		"Author": "LB",
+		"Copyright": "Copyright © 2012 LB-Stuff",
+		"Comment": "Allows you to create nested and recursive tree structures with nodes that contain data.",
+		"URL": "http://www.LB-Stuff.com/",
+		"Help": "Help/Structured Data.chm",
+		"Identifier": "SDNO",
+	},
+	"ActionMenu":
+	[
+		"Separator",
+		[0, "Go to Root Node"],
+		[1, "Go to Sub-Node"],
+		[2, "Go to Node (ID)"],
+		"Separator",
+		[3, "Add Sub-Node by ID"],
+		[4, "Set Integer"],
+		[5, "Set Float"],
+		[6, "Set String"],
+		"Separator",
+		[7, "Remove Sub-Node"],
+		[8, "Remove Node (ID)"],
+		[9, "Remove Integer"],
+		[10, "Remove Float"],
+		[11, "Remove String"],
+		"Separator",
+	],
+	"ConditionMenu":
+	[
+		"Separator",
+		[0, "Node Exists"],
+		[1, "Node Exists (ID)"],
+		[2, "Integer Exists"],
+		[3, "Float Exists"],
+		[4, "String Exists"],
+	],
+	"ExpressionMenu":
+	[
+		"Separator",
+		[0, "Current Node ID"],
+		"Separator",
+		[1, "Integer"],
+		[2, "Float"],
+		[3, "String"],
+		"Separator",
+	],
+	"Actions":
+	[
+		{ "Title": "Go to Root Node",
+		},
+		{ "Title": "Go to Sub-Node %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Go to Node %0",
+		  "Parameters":
+		  [
+			["Integer", "ID"],
+		  ],
+		},
+		{ "Title": "Add Node %0 as Sub-Node %1",
+		  "Parameters":
+		  [
+			["Integer", "ID"],
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Set Integer %0 to %1",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+			["Integer", "Value"],
+		  ],
+		},
+		{ "Title": "Set Float %0 to %1",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+			["Float", "Value"],
+		  ],
+		},
+		{ "Title": "Set String %0 to %1",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+			["Text", "String"],
+		  ],
+		},
+		{ "Title": "Remove Sub-Node %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Remove Node %0",
+		  "Parameters":
+		  [
+			["Integer", "ID"],
+		  ],
+		},
+		{ "Title": "Remove Integer %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Remove Float %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Remove String %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+	],
+	"Conditions":
+	[
+		{ "Title": "%o: Node %0 Exists",
+		  "Triggered":false,
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ] ,
+		},
+		{ "Title": "%o: Node %0 Exists",
+		  "Triggered":false,
+
+		  "Parameters":
+		  [
+			["Integer", "ID"],
+		  ],
+		},
+		{ "Title": "%o: Integer %0 Exists",
+		  "Triggered":false,
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "%o: Float %0 Exists",
+		  "Triggered":false,
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "%o: String %0 Exists",
+		  "Triggered":false,
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+	],
+	"Expressions":
+	[
+		{ "Title": "ID(",
+		  "Returns": "Integer",
+
+		},
+		{ "Title": "Int(",
+		  "Returns": "Integer",
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Float(",
+		  "Returns": "Float",
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "String$(",
+		  "Returns": "Text",
+
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+	],
+}
