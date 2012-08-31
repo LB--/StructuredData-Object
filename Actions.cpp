@@ -44,6 +44,8 @@ void Extension::RemoveSubnode(const char *Name)
 }
 void Extension::RemoveNodeByID(int ID)
 {
+	if(ID == 0) return;
+	if(ID == cur->ID) ReturnToRoot();
 	for(std::map<int, SDNode *>::const_iterator it = SDNode::Nodes.begin(); it != SDNode::Nodes.end(); ++it)
 	{
 		for(SDNode::nmt::iterator jt = it->second->nm.begin(); jt != it->second->nm.end();)
