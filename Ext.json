@@ -16,6 +16,7 @@
 		[1, "Go to Sub-Node"],
 		[2, "Go to Node (ID)"],
 		"Separator",
+		[12, "Create Sub-Node"],
 		[3, "Add Sub-Node by ID"],
 		[4, "Set Integer"],
 		[5, "Set Float"],
@@ -116,6 +117,12 @@
 		  ],
 		},
 		{ "Title": "Remove String %0",
+		  "Parameters":
+		  [
+			["Text", "Name"],
+		  ],
+		},
+		{ "Title": "Create Sub-Node %0",
 		  "Parameters":
 		  [
 			["Text", "Name"],

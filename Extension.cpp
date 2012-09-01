@@ -18,6 +18,7 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkAction(9, RemoveInt);
 	LinkAction(10,RemoveFloat);
 	LinkAction(11,RemoveString);
+	LinkAction(12,CreateSubnode);
 
 	LinkCondition(0, NodeExists);
 	LinkCondition(1, NodeExistsByID);

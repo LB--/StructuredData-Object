@@ -6,10 +6,7 @@ void Extension::ReturnToRoot()
 }
 void Extension::EnterSubnode(const char *Name)
 {
-	if(cur->nm.find(Name) == cur->nm.end())
-	{
-		cur->nm[Name] = new SDNode();
-	}
+	CreateSubnode(Name);
 	cur = cur->nm[Name];
 }
 void Extension::GotoNodeByID(int ID)
@@ -17,6 +14,13 @@ void Extension::GotoNodeByID(int ID)
 	if(SDNode::Nodes.find(ID) != SDNode::Nodes.end())
 	{
 		cur = SDNode::Nodes.find(ID)->second;
+	}
+}
+void Extension::CreateSubnode(const char *Name)
+{
+	if(cur->nm.find(Name) == cur->nm.end())
+	{
+		cur->nm[Name] = new SDNode();
 	}
 }
 void Extension::AddNodeByID(int ID, const char *Name)

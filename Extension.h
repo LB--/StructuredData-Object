@@ -27,6 +27,7 @@ public:
 	void ReturnToRoot();
 	void EnterSubnode(const char *Name);
 	void GotoNodeByID(int ID);
+	void CreateSubnode(const char *Name);
 	void AddNodeByID(int ID, const char *Name);
 	void SetInt(const char *Name, int Value);
 	void SetFloat(const char *Name, float Value);
