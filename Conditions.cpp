@@ -20,3 +20,33 @@ bool Extension::StringExists(const char *Name)
 {
 	return cur->sm.find(Name) != cur->sm.end();
 }
+bool Extension::OnNode()
+{
+	if(Nit)
+	{
+		cur = Nit->operator->()->second;
+		return true;
+	}
+	return false;
+}
+bool Extension::OnSubnode()
+{
+	if(nit.size())
+	{
+		cur = nit.back()->operator->()->second;
+		return true;
+	}
+	return false;
+}
+bool Extension::OnInt()
+{
+	return iit != 0;
+}
+bool Extension::OnFloat()
+{
+	return fit != 0;
+}
+bool Extension::OnString()
+{
+	return sit != 0;
+}

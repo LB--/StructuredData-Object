@@ -11,9 +11,11 @@ private:
 		static int nid = 0;
 		return nid++;
 	}
-	static std::map<int, SDNode *> nodes;
+	typedef std::map<int, SDNode *> nodes_t;
+	static nodes_t nodes;
 public:
-	static const std::map<int, SDNode *> &Nodes;
+	typedef nodes_t Nodes_t;
+	static const Nodes_t &Nodes;
 	SDNode() : ID(NextID())
 	{
 		nodes[ID] = this;

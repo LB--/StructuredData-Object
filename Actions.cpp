@@ -42,6 +42,56 @@ void Extension::SetString(const char *Name, const char *String)
 {
 	cur->sm[Name] = String;
 }
+void Extension::IterateNodes()
+{
+	SDNode::Nodes_t::const_iterator it = SDNode::Nodes.begin();
+	for(Nit = &it; it != SDNode::Nodes.end(); ++it)
+	{
+		Runtime.GenerateEvent(TOnNode);
+	}
+	Nit = 0;
+}
+void Extension::IterateSubnodes()
+{
+	SDNode *c = cur;
+	SDNode::nmt::iterator it = c->nm.begin();
+	nit.push_back(&it);
+	for(; it != c->nm.end(); ++it)
+	{
+		Runtime.GenerateEvent(TOnSubnode);
+	}
+	nit.pop_back();
+}
+void Extension::IterateInts()
+{
+	SDNode *c = cur;
+	SDNode::imt::iterator it = c->im.begin();
+	for(iit = &it; it != c->im.end(); ++it)
+	{
+		Runtime.GenerateEvent(TOnInt);
+	}
+	iit = 0;
+}
+void Extension::IterateFloats()
+{
+	SDNode *c = cur;
+	SDNode::fmt::iterator it = c->fm.begin();
+	for(fit = &it; it != c->fm.end(); ++it)
+	{
+		Runtime.GenerateEvent(TOnFloat);
+	}
+	fit = 0;
+}
+void Extension::IterateStrings()
+{
+	SDNode *c = cur;
+	SDNode::smt::iterator it = c->sm.begin();
+	for(sit = &it; it != c->sm.end(); ++it)
+	{
+		Runtime.GenerateEvent(TOnString);
+	}
+	sit = 0;
+}
 void Extension::RemoveSubnode(const char *Name)
 {
 	cur->nm.erase(Name);

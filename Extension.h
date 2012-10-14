@@ -9,7 +9,7 @@ public:
 	Edif::Runtime Runtime;
 
 	static const int MinimumBuild = 255;
-	static const int Version = 2;
+	static const int Version = 1;
 
 	static const int OEFLAGS = OEFLAG_VALUES|OEFLAG_RUNBEFOREFADEIN|OEFLAG_NEVERKILL;
 	static const int OEPREFS = 0;
@@ -21,6 +21,11 @@ public:
 
 
 	SDNode *root, *cur;
+	SDNode::Nodes_t::const_iterator *Nit; //All Nodes iterator
+	std::vector<SDNode::nmt::iterator *> nit; //Subnodes iterator
+	SDNode::imt::iterator *iit; //Ints iterator
+	SDNode::fmt::iterator *fit; //Floats iterator
+	SDNode::smt::iterator *sit; //Strings iterator
 
 
 	//Actions
@@ -32,6 +37,11 @@ public:
 	void SetInt(const char *Name, int Value);
 	void SetFloat(const char *Name, float Value);
 	void SetString(const char *Name, const char *String);
+	void IterateNodes();
+	void IterateSubnodes();
+	void IterateInts();
+	void IterateFloats();
+	void IterateStrings();
 	void RemoveSubnode(const char *Name);
 	void RemoveNodeByID(int ID);
 	void RemoveInt(const char *Name);
@@ -44,12 +54,21 @@ public:
 	bool IntExists(const char *Name);
 	bool FloatExists(const char *Name);
 	bool StringExists(const char *Name);
+	bool OnNode();						const static unsigned TOnNode	= 5;
+	bool OnSubnode();					const static unsigned TOnSubnode= 6;
+	bool OnInt();						const static unsigned TOnInt	= 7;
+	bool OnFloat();						const static unsigned TOnFloat	= 8;
+	bool OnString();					const static unsigned TOnString	= 9;
 
 	//Expressions
 	int NodeID();
 	int Int(const char *Name);
 	float Float(const char *Name);
 	const char *String(const char *Name);
+	const char *SubnodeName();
+	const char *IntName();
+	const char *FloatName();
+	const char *StringName();
 
 
 	void Action(int ID, LPRDATA rdPtr, long param1, long param2);

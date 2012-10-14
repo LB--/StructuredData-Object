@@ -1,7 +1,7 @@
 #include "Common.h"
 
-std::map<int, SDNode *> SDNode::nodes;
-const std::map<int, SDNode *> &SDNode::Nodes (SDNode::nodes);
+SDNode::nodes_t SDNode::nodes;
+const SDNode::Nodes_t &SDNode::Nodes (SDNode::nodes);
 
 Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	: rdPtr(_rdPtr), rhPtr(_rdPtr->rHo.hoAdRunHeader), Runtime(_rdPtr)
@@ -19,20 +19,35 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkAction(10,RemoveFloat);
 	LinkAction(11,RemoveString);
 	LinkAction(12,CreateSubnode);
+	LinkAction(13,IterateNodes);
+	LinkAction(14,IterateSubnodes);
+	LinkAction(15,IterateInts);
+	LinkAction(16,IterateFloats);
+	LinkAction(17,IterateStrings);
 
-	LinkCondition(0, NodeExists);
-	LinkCondition(1, NodeExistsByID);
-	LinkCondition(2, IntExists);
-	LinkCondition(3, FloatExists);
-	LinkCondition(4, StringExists);
+	LinkCondition(0,			NodeExists);
+	LinkCondition(1,			NodeExistsByID);
+	LinkCondition(2,			IntExists);
+	LinkCondition(3,			FloatExists);
+	LinkCondition(4,			StringExists);
+	LinkCondition(TOnNode,		OnNode);
+	LinkCondition(TOnSubnode,	OnSubnode);
+	LinkCondition(TOnInt,		OnInt);
+	LinkCondition(TOnFloat,		OnFloat);
+	LinkCondition(TOnString,	OnString);
 
 	LinkExpression(0, NodeID);
 	LinkExpression(1, Int);
 	LinkExpression(2, Float);
 	LinkExpression(3, String);
+	LinkExpression(4, SubnodeName);
+	LinkExpression(5, IntName);
+	LinkExpression(6, FloatName);
+	LinkExpression(7, StringName);
 
 	root = new SDNode();
 	cur = root;
+	Nit = 0;
 }
 
 Extension::~Extension()

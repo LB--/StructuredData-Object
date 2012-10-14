@@ -26,7 +26,7 @@ int WINAPI DLLExport MakeIconEx ( mv _far *mV, cSurface* pIconSf, LPTSTR lpName,
 	pIconSf->Delete();
 	pIconSf->Clone(*SDK->Icon);
 
-	pIconSf->SetTransparentColor(RGB(0, 0, 0));
+	pIconSf->SetTransparentColor(RGB(255, 255, 255));
 
 #endif // !defined(RUN_ONLY)
    return 0;
@@ -134,7 +134,7 @@ LPVOID WINAPI DLLExport GetPropValue(LPMV mV, LPEDATA edPtr, UINT nPropID)
 #ifndef RUN_ONLY
 	if(nPropID == PropVersion)
 	{
-		return new CPropDataValue("2 (Beta 2)");
+		return new CPropDataValue("Beta 2");
 	}
 #endif
 	return NULL;
@@ -160,7 +160,13 @@ BOOL WINAPI DLLExport EditProp(LPMV mV, LPEDATA edPtr, UINT nPropID)
 
 BOOL WINAPI IsPropEnabled(LPMV mV, LPEDATA edPtr, UINT nPropID)
 {
-	return FALSE;
+#ifndef RUN_ONLY
+	if(nPropID == PropVersion)
+	{
+		return FALSE;
+	}
+#endif
+	return TRUE;
 }
 
 
