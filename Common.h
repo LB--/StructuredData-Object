@@ -1,23 +1,10 @@
 #pragma once
 
-// #define TGFEXT	   // TGF2, MMF2, MMF2 Dev
-   #define MMFEXT	   // MMF2, MMF2 Dev
-// #define PROEXT	   // MMF2 Dev only
+#define MMFEXT
 
-#include	"Edif.h"
-#include	"Resource.h"
+#include "Edif.h"
+#include "Resource.h"
 
-// edPtr : Used at edittime and saved in the MFA/CCN/EXE files
-
-struct EDITDATA
-{
-	// Header - required
-	extHeader		eHeader;
-
-	// Object's data
-//	short			swidth;
-//	short			sheight;
-
-};
+typedef std::basic_string<TCHAR> stdtstring;
 
 #include "Extension.h"
