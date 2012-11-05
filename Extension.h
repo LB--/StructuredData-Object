@@ -30,30 +30,31 @@ public:
 
 	//Actions
 	void ReturnToRoot();
-	void EnterSubnode(const char *Name);
+	void EnterSubnode(const TCHAR *Name);
 	void GotoNodeByID(int ID);
-	void CreateSubnode(const char *Name);
-	void AddNodeByID(int ID, const char *Name);
-	void SetInt(const char *Name, int Value);
-	void SetFloat(const char *Name, float Value);
-	void SetString(const char *Name, const char *String);
+	void CreateSubnode(const TCHAR *Name);
+	void AddNodeByID(int ID, const TCHAR *Name);
+	void SetInt(const TCHAR *Name, int Value);
+	void SetFloat(const TCHAR *Name, float Value);
+	void SetString(const TCHAR *Name, const TCHAR *String);
 	void IterateNodes();
 	void IterateSubnodes();
 	void IterateInts();
 	void IterateFloats();
 	void IterateStrings();
-	void RemoveSubnode(const char *Name);
+	void RemoveSubnode(const TCHAR *Name);
 	void RemoveNodeByID(int ID);
-	void RemoveInt(const char *Name);
-	void RemoveFloat(const char *Name);
-	void RemoveString(const char *Name);
+	void RemoveInt(const TCHAR *Name);
+	void RemoveFloat(const TCHAR *Name);
+	void RemoveString(const TCHAR *Name);
+	void ClearAll();
 
 	//Conditions
-	bool NodeExists(const char *Name);
+	bool NodeExists(const TCHAR *Name);
 	bool NodeExistsByID(int ID);
-	bool IntExists(const char *Name);
-	bool FloatExists(const char *Name);
-	bool StringExists(const char *Name);
+	bool IntExists(const TCHAR *Name);
+	bool FloatExists(const TCHAR *Name);
+	bool StringExists(const TCHAR *Name);
 	bool OnNode();						const static unsigned TOnNode	= 5;
 	bool OnSubnode();					const static unsigned TOnSubnode= 6;
 	bool OnInt();						const static unsigned TOnInt	= 7;
@@ -62,13 +63,13 @@ public:
 
 	//Expressions
 	int NodeID();
-	int Int(const char *Name);
-	float Float(const char *Name);
-	const char *String(const char *Name);
-	const char *SubnodeName();
-	const char *IntName();
-	const char *FloatName();
-	const char *StringName();
+	int Int(const TCHAR *Name);
+	float Float(const TCHAR *Name);
+	const TCHAR *String(const TCHAR *Name);
+	const TCHAR *SubnodeName();
+	const TCHAR *IntName();
+	const TCHAR *FloatName();
+	const TCHAR *StringName();
 
 
 	void Action(int ID, LPRDATA rdPtr, long param1, long param2);

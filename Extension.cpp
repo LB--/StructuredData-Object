@@ -24,6 +24,7 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkAction(15,IterateInts);
 	LinkAction(16,IterateFloats);
 	LinkAction(17,IterateStrings);
+	LinkAction(18,ClearAll);
 
 	LinkCondition(0,			NodeExists);
 	LinkCondition(1,			NodeExistsByID);
@@ -83,22 +84,12 @@ short Extension::Continue()
 
 bool Extension::Save(HANDLE File)
 {
-	bool OK = false;
-#ifndef VITALIZE
-	//
-	OK = true;
-#endif
-	return OK;
+	return false;
 }
 
 bool Extension::Load(HANDLE File)
 {
-	bool OK = false;
-#ifndef VITALIZE
-	//
-	OK = true;
-#endif
-	return OK;
+	return false;
 }
 
 
@@ -113,5 +104,5 @@ long Extension::Condition(int ID, LPRDATA rdPtr, long param1, long param2)
 
 long Extension::Expression(int ID, LPRDATA rdPtr, long param)
 {
-	return long("");
+	return long(_T(""));
 }

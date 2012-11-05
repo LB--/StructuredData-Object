@@ -4,7 +4,7 @@ void Extension::ReturnToRoot()
 {
 	cur = root;
 }
-void Extension::EnterSubnode(const char *Name)
+void Extension::EnterSubnode(const TCHAR *Name)
 {
 	CreateSubnode(Name);
 	cur = cur->nm[Name];
@@ -16,29 +16,29 @@ void Extension::GotoNodeByID(int ID)
 		cur = SDNode::Nodes.find(ID)->second;
 	}
 }
-void Extension::CreateSubnode(const char *Name)
+void Extension::CreateSubnode(const TCHAR *Name)
 {
 	if(cur->nm.find(Name) == cur->nm.end())
 	{
 		cur->nm[Name] = new SDNode();
 	}
 }
-void Extension::AddNodeByID(int ID, const char *Name)
+void Extension::AddNodeByID(int ID, const TCHAR *Name)
 {
 	if(SDNode::Nodes.find(ID) != SDNode::Nodes.end())
 	{
 		cur->nm[Name] = SDNode::Nodes.find(ID)->second;
 	}
 }
-void Extension::SetInt(const char *Name, int Value)
+void Extension::SetInt(const TCHAR *Name, int Value)
 {
 	cur->im[Name] = Value;
 }
-void Extension::SetFloat(const char *Name, float Value)
+void Extension::SetFloat(const TCHAR *Name, float Value)
 {
 	cur->fm[Name] = Value;
 }
-void Extension::SetString(const char *Name, const char *String)
+void Extension::SetString(const TCHAR *Name, const TCHAR *String)
 {
 	cur->sm[Name] = String;
 }
@@ -92,7 +92,7 @@ void Extension::IterateStrings()
 	}
 	sit = 0;
 }
-void Extension::RemoveSubnode(const char *Name)
+void Extension::RemoveSubnode(const TCHAR *Name)
 {
 	cur->nm.erase(Name);
 }
@@ -113,15 +113,25 @@ void Extension::RemoveNodeByID(int ID)
 	}
 	delete SDNode::Nodes.find(ID)->second;
 }
-void Extension::RemoveInt(const char *Name)
+void Extension::RemoveInt(const TCHAR *Name)
 {
 	cur->im.erase(Name);
 }
-void Extension::RemoveFloat(const char *Name)
+void Extension::RemoveFloat(const TCHAR *Name)
 {
 	cur->fm.erase(Name);
 }
-void Extension::RemoveString(const char *Name)
+void Extension::RemoveString(const TCHAR *Name)
 {
 	cur->sm.erase(Name);
+}
+
+void Extension::ClearAll()
+{
+	while(SDNode::Nodes.size())
+	{
+		delete SDNode::Nodes.begin()->second;
+	}
+	root = new SDNode();
+	cur = root;
 }

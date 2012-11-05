@@ -34,6 +34,8 @@
 		[10, "Remove Float"],
 		[11, "Remove String"],
 		"Separator",
+		[18, "Clear All Nodes"],
+		"Separator",
 	],
 	"ConditionMenu":
 	[
@@ -154,6 +156,8 @@
 		{ "Title": "Iterate over Floats",
 		},
 		{ "Title": "Iterate over Strings",
+		},
+		{ "Title": "Clear All Nodes",
 		},
 	],
 	"Conditions":

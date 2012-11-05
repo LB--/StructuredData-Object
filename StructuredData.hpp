@@ -25,13 +25,13 @@ public:
 		nodes.erase(ID);
 	}
 
-	typedef std::map<std::string, SDNode *> nmt;
+	typedef std::map<stdtstring, SDNode *> nmt;
 	nmt nm;
-	typedef std::map<std::string, int> imt;
+	typedef std::map<stdtstring, int> imt;
 	imt im;
-	typedef std::map<std::string, float> fmt;
+	typedef std::map<stdtstring, float> fmt;
 	fmt fm;
-	typedef std::map<std::string, std::string> smt;
+	typedef std::map<stdtstring, stdtstring> smt;
 	smt sm;
 };
 

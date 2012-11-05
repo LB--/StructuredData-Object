@@ -4,43 +4,43 @@ int Extension::NodeID()
 {
 	return cur->ID;
 }
-int Extension::Int(const char *Name)
+int Extension::Int(const TCHAR *Name)
 {
 	return cur->im[Name];
 }
-float Extension::Float(const char *Name)
+float Extension::Float(const TCHAR *Name)
 {
 	return cur->fm[Name];
 }
-const char *Extension::String(const char *Name)
+const TCHAR *Extension::String(const TCHAR *Name)
 {
 	return Runtime.CopyString(cur->sm[Name].c_str());
 }
-const char *Extension::SubnodeName()
+const TCHAR *Extension::SubnodeName()
 {
 	return Runtime.CopyString(nit.back()->operator->()->first.c_str());
 }
-const char *Extension::IntName()
+const TCHAR *Extension::IntName()
 {
 	if(iit)
 	{
 		return Runtime.CopyString(iit->operator->()->first.c_str());
 	}
-	return"";
+	return _T("");
 }
-const char *Extension::FloatName()
+const TCHAR *Extension::FloatName()
 {
 	if(fit)
 	{
 		return Runtime.CopyString(fit->operator->()->first.c_str());
 	}
-	return"";
+	return _T("");
 }
-const char *Extension::StringName()
+const TCHAR *Extension::StringName()
 {
 	if(sit)
 	{
 		return Runtime.CopyString(sit->operator->()->first.c_str());
 	}
-	return"";
+	return _T("");
 }
